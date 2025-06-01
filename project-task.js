@@ -46,7 +46,7 @@ function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
     if(fileName === undefined || typeof fileData !== "string" || (fileData === " " || "")) {
-      console.log("Unsupported or improperly formatted file types, please retry.")
+      throw new Error("Unsupported or improperly formatted file types, please retry.")
     } 
     
     // TODO: Implement simulated file processing here
