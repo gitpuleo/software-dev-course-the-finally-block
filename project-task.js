@@ -45,6 +45,9 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
+    if(fileName === undefined || typeof fileData !== "string" || (fileData === " " || "")) {
+      console.log("Unsupported or improperly formatted file types, please retry.")
+    } 
     
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
@@ -55,19 +58,26 @@ function processFile(fileName, fileData) {
   } catch (err) {
     // TODO: Implement error handling
     console.error(err);
-  }
+  } finally {
   // TODO: Implement a finally block to close resources
+  console.log("Resources closed, program terminating."); 
 }
+};
+
+
 
 // ============================================
 // 🧪 Test Cases Below
 // ============================================
 
-processFile(); // ❌ ReferenceError: File name is missing
-processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
-processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
+processFile("myFile.txt"); // ❌ ReferenceError: File name is missing
+processFile("myFile.txt", "42"); // ❌ TypeError: File data must be a string
+processFile("myFile.txt", ["file", "data", "someVal"]); // ❌ Error: File data cannot be empty
 processFile("myFile.txt", "Hello, world!"); // ✅ Should process successfully
 
 
 
-//comment
+//Don't focus on the logic errors (focus on thrown errors)
+
+
+//What is /a/ way of approaching the problem (minimum viable product is the first goal--start coding, worry about refining later)
